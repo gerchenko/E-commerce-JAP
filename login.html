@@ -4,25 +4,99 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google-signin-client_id" content="689218357379-kvgt2433dlpr80vfi4mfk5g603tfvtd2.apps.googleusercontent.com">
+  <meta name="google-signin-scope" content="profile email">
   <title>eMercado - Todo lo que busques está aquí</title>
-  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/signin.css" rel="stylesheet">
+  <meta name="google-site-verification" content="yfbAZJwdLTzeUjbMfFOvIdbP5mCKDRtx9dccmmVq06w" />
+  
+  
+  
+
+
   <style>
-    body {
-      background-color: rgb(248, 249, 250);
-    }
+      i{
+        color: red;
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      *{
+        font-family: 'Raleway', serif;
+      }
+
+      .icono{
+        position: absolute;
+        right: 10px;
+        top:12px;
+        opacity: 0;
+      }
+      .icono_error{
+        position: absolute;
+        right: 10px;
+        top:12px;
+        opacity: 1;
+      }
+
+      form p{
+        font-size: 12px;
+        color:  #ff0000;
+        opacity: 0;
+      }
+      .text{
+        font-size: 12px;
+        color:  #ff0000;
+        opacity: 1;
+      }
+
+      body {
+        background-color: rgb(248, 249, 250);
+      }
+
   </style>
 </head>
 
 <body>
-  <main class="mt-5">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
-    </div>
+  <main class="form-signin text-center">
+    <form>
+      <img class="mb-4" src="img/login.png" alt="" width="300" height="127">
+      <h1 class="h3 mb-3 fw-normal fw-bold">Inicio de sesión</h1>
+      
+  
+      
+          <label for="email" class="form-label mb-0">Email</label>
+              <div class="mb-2 position-relative">
+                  <input type="text" class="form-control " id="email" placeholder="Example@outlook.com">
+                  <i id="icono_email" class="fa-solid fa-circle-exclamation icono"></i>
+              </div>
+          <p id="text_email">Por favor ingrese su e-mail</p>
+      
+      
+          <label for="password" class="form-label mb-0">Contraseña</label>
+          <div class="mb-1 position-relative">
+              <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña">
+              <i id="icono_password" class="fa-solid fa-circle-exclamation icono"></i>
+          </div>
+      <p id="text_password">Por favor ingrese su contraseña</p>
+      <button class="w-40 btn btn-lg btn-primary" type="submit">Ingresar</button>
+      <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    </form>
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -34,7 +108,9 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="js/login.js"></script>
+  <script src="https://kit.fontawesome.com/3ab1c6b0fb.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
