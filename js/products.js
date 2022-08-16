@@ -26,6 +26,5 @@ fetch(listadoAutos)
                 </div>
             </div>`
     }
-    let name_category = document.getElementById("description")
-    name_category.innerHTML= `Veras aqui todos los elementos de la categoria ${autos.catName}`
+    
 })

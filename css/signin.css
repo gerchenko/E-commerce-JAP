@@ -35,4 +35,7 @@ body {
   margin-bottom: 10px;
   
 }
-
+body main form div.g-signin2.googleboton{
+  width: 100% !important;
+  background-color: red;
+}
