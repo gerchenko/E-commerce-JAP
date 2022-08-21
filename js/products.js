@@ -1,12 +1,12 @@
-let catID = localStorage.getItem("catID"); 
-const listadoAutos = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`
+let catID = localStorage.getItem("catID");
+const URL_PRODUCTS = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`
 
-fetch(listadoAutos)
+fetch(URL_PRODUCTS)
 .then((response) => response.json())
-.then(autos =>{
+.then(list =>{
     let products = document.getElementById("products")
-
-    for (product of autos.products){
+  
+    for (product of list.products){
         products.innerHTML +=
         `
             <div class="container">
