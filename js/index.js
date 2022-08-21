@@ -14,9 +14,8 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 document.addEventListener("DOMContentLoaded",()=>{
-    let usuario =JSON.parse(localStorage.getItem('item'));
-    if(usuario==null){
+    let usuario =(localStorage.getItem('logueado'));
+     if(usuario==null){
         location.href="login.html";
-    }
-    
+    } 
 });
