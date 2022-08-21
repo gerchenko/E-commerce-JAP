@@ -1,4 +1,5 @@
-const listadoAutos = "https://japceibal.github.io/emercado-api/cats_products/101.json"
+let catID = localStorage.getItem("catID"); 
+const listadoAutos = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`
 
 fetch(listadoAutos)
 .then((response) => response.json())
@@ -28,3 +29,4 @@ fetch(listadoAutos)
     }
     
 })
+
