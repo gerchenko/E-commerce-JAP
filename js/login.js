@@ -24,7 +24,8 @@ form.addEventListener("submit", function(e){
         
 }); 
 
-window.response = (response) => {
-    console.log(response)
+window.response = function () {
+
+    localStorage.setItem("logueado", "1");
     window.location.href = "index.html";
 }
