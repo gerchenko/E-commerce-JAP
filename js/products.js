@@ -104,7 +104,9 @@ boton_filtrar.addEventListener('click', filtrar);
 limpiar.addEventListener("click", function(){
     cantidad_maxima.value = "";
     cantidad_minima.value = "";
+    filtrar();
     mostrarArray()
+
 })
 const filtrar_nombre = ()=>{
     products.innerHTML = "";
