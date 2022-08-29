@@ -39,3 +39,5 @@ let getJSONData = function(url){
         return result;
     });
 }
+let navEmail = document.getElementById("navEmail")
+navEmail.innerHTML += `<span class="nav-link">${localStorage.getItem("logueado")}</span>`

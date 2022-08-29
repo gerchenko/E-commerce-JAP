@@ -30,16 +30,62 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="navEmail">
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <main class="pb-5 container">
-      <div class="text-center p-4">
-        <h2>Categorías</h2>
-        <p class="lead">Verás aquí todas las categorías de <b>Autos</b></p>
+    <div class= "text-center p-4">
+      <h2>Productos</h2>
+          <p class= "lead">Veras aqui todos los productos de categoria <b id="catname"></b></p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col text-end">
+        <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
+          <input type="radio" class="btn-check" name="options" id="ascendente">
+          <label class="btn btn-light" for="ascendente"><i class="fas fa-sort-amount-down mr-1"></i></i>$</label>
+          <input type="radio" class="btn-check" name="options" id="descendente">
+          <label class="btn btn-light" for="descendente"><i class="fas fa-sort-amount-up mr-1"></i>$</label>
+          <input type="radio" class="btn-check" name="options" id="btncantidad" checked>
+          <label class="btn btn-light" for="btncantidad"><i class="fas fa-sort-amount-down mr-1"></i>R</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      
+      <div class="container d-flex">
+        <div class="row container p-0">
+          <div class="col-3">
+            <input class="form-control" type="search" placeholder="Buscar" id="buscar">
+          </div> 
+          <div class="col">
+            <p class="font-weight-normal text-end my-2">Cant.</p>
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" placeholder="min." id="cantidad_minima">
+          </div>
+          <div class="col">
+            <input class="form-control" type="number" placeholder="máx." id="cantidad_maxima">
+          </div>
+          <div class="col-3 p-0">
+            <div class="btn-group" role="group">
+              <button class="btn btn-light btn-block" id="filtrar">Filtrar</button>
+              <button class="btn btn-link btn-sm" id="limpiar">Limpiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="list-group" id="cat-list-container">
+      </div>
+    </div>
+  </div>
+      <div id="encabezado">
+        
       </div>
     <div id="products">
 
@@ -59,6 +105,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
+  
 </body>
 
 </html>

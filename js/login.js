@@ -18,14 +18,16 @@ form.addEventListener("submit", function(e){
 
     }
     if(password.value.length > 0 && email.value.length > 0){
-            localStorage.setItem("logueado", "1");
+            localStorage.setItem("logueado", email.value);
             location.href = "index.html";
     }
         
 }); 
 
-window.response = function () {
+window.response = function (response) {
 
-    localStorage.setItem("logueado", "1");
+     localStorage.setItem("logueado", email.value);
     window.location.href = "index.html";
+    console.log(response)
 }
+
