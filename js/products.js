@@ -85,11 +85,12 @@ btn_cantidad_vendido.addEventListener("click", function(){
 
 function filtrar() {
     let min;
-    if (cantidad_minima.value !== '' && cantidad_minima.value !== undefined) {
-        min = cantidad_minima.value;
-    } else {
-        min = -Infinity;
+    if (cantidad_minima.value == '' && cantidad_minima.value == undefined) {
+        min = 0;
+      } else { 
+          min = cantidad_minima.value;
     };
+    
     let max;
     if (cantidad_maxima.value !== '' && cantidad_maxima.value !== undefined) {
         max = cantidad_maxima.value;
@@ -104,6 +105,7 @@ boton_filtrar.addEventListener('click', filtrar);
 limpiar.addEventListener("click", function(){
     cantidad_maxima.value = "";
     cantidad_minima.value = "";
+    buscar.value = "";
     filtrar();
     mostrarArray()
 
@@ -113,7 +115,8 @@ const filtrar_nombre = ()=>{
     const texto = buscar.value.toLowerCase();
     for(let producto of productsArray){
         let name = producto.name.toLowerCase();
-        if(name.indexOf(texto) !== -1){
+        let description = producto.description.toLowerCase();
+        if(name.indexOf(texto) !== -1 || description.indexOf(texto) !== -1){
             products.innerHTML +=` 
             <div class="container">
             
