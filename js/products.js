@@ -21,7 +21,7 @@ function mostrarArray(){
         `
             <div class="container">
             
-                <div class="list-group-item list-group-item-action cursor-active">
+                <div onclick="setProducts(${product.id})" class="list-group-item list-group-item-action cursor-active">
                     <div class="row">
                         <div class="col-3">
                             <img src="${product.image}" class="img-thumbnail">
@@ -120,7 +120,7 @@ const filtrar_nombre = ()=>{
             products.innerHTML +=` 
             <div class="container">
             
-                <div class="list-group-item list-group-item-action cursor-active">
+                <div onclick="setProducts(${producto.id})" class="list-group-item list-group-item-action cursor-active">
                     <div class="row">
                         <div class="col-3">
                             <img src="${producto.image}" class="img-thumbnail">
@@ -144,3 +144,7 @@ const filtrar_nombre = ()=>{
 }
 buscar.addEventListener("keyup", filtrar_nombre)
 
+function setProducts(id) {
+    localStorage.setItem("Products", id);
+    window.location = "product-info.html"
+}

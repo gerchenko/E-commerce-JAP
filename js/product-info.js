@@ -1,0 +1,118 @@
+let Products = localStorage.getItem("Products");
+let PRODUCTS = `https://japceibal.github.io/emercado-api/products/${Products}.json`
+let COMMENTS = `https://japceibal.github.io/emercado-api/products_comments/${Products}.json`
+let data = [];
+fetch(PRODUCTS)
+.then(response => response.json())
+.then(list =>{
+    
+    let container = document.getElementById("container")
+    container.innerHTML +=`
+    <br>
+         <h1>${list.name}</h1>
+            <br>
+                <hr>
+                    <div>
+                        <h5><b>Precio</b></h5>
+                            <p>${list.currency} ${list.cost}</p>
+                    </div>
+                        <div>
+                            <h5><b>Descripción</b></h5>
+                                <p>${list.description}</p>
+                        </div>
+                            <div>
+                                <h5><b>Categoría</b></h5>
+                                    <p>${list.category}</p>
+                            </div>
+                                <div>
+                                    <h5><b>Cantidad de vendidos</b></h5>
+                                        <p>${list.soldCount}</p>
+                                </div>
+                                    <div>
+                                        <h5><b>Imágenes ilustrativas</b></h5>
+                                    
+                                        <div class="col-3 d-flex">
+                                            <img src="${list.images[0]}" alt="${list.description}" class="img-thumbnail img">
+                                            <img src="${list.images[1]}" alt="${list.description}" class="img-thumbnail img">
+                                            <img src="${list.images[2]}" alt="${list.description}" class="img-thumbnail img">
+                                            <img src="${list.images[3]}" alt="${list.description}" class="img-thumbnail img">
+                                        </div>
+                                    </div>`
+    });
+   
+    function addComment(){ let comentarios = document.getElementById("comentarios")
+    let otrocomentario = "";
+for (comentario of  data){
+    
+   
+    otrocomentario+=`
+    
+            <div class="list-group-item">
+                
+                    <div><b>${comentario.user}</b> ${comentario.dateTime} - 
+                   
+                        <span class="fa fa-star ${comentario.score >=1 ? "checked": ""}"></span>
+                        <span class="fa fa-star ${comentario.score >=2 ? "checked": ""}"></span>
+                        <span class="fa fa-star ${comentario.score >=3 ? "checked": ""}"></span>
+                        <span class="fa fa-star ${comentario.score >=4 ? "checked": ""}"></span>
+                        <span class="fa fa-star ${comentario.score >=5 ? "checked": ""}"></span>
+                    </div>
+                        <div>${comentario.description}
+                        </div>
+                
+            </div>`
+         comentarios.innerHTML = otrocomentario;   
+}
+}
+    fetch(COMMENTS)
+    .then(response => response.json())
+    .then(comments =>{
+    
+        data = comments;
+        addComment();
+        })
+let comentar = document.getElementById("comentar")
+comentar.innerHTML+=`<br><h4>Comentar</h4>
+<div class="col-6">
+<br>
+Tu opinión:
+  <textarea class="form-control mt-2" placeholder="Dejanos un comentario" id="textarea" style="height: 100px"></textarea>
+  
+</div>
+
+<br>
+Tu puntuación:
+<div class="col-2">
+    <select class="form-select form-select mt-2" aria-label=".form-select-lg example" id="puntuacion">
+
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+</div>
+
+<button type="submit" class="btn btn-primary mt-2" id="btn">Enviar</button>`
+let comentario 
+let nuevoComentario = document.getElementById("btn")
+
+nuevoComentario.addEventListener("click", function(e){
+    
+    e.preventDefault();
+    let opinion = document.getElementById("textarea")
+    let puntuacion = document.getElementById("puntuacion")
+    var date = new Date();
+    let dateTime = date.getFullYear() + "-" + (date.getUTCMonth()+1) +"-"+ date.getUTCDate()+ " " + (date.getUTCHours() - 3) + ":" + date.getUTCMinutes() + ":" + date.getUTCSeconds();
+        comentario = {
+        dateTime: dateTime,
+        description: opinion.value,
+        score: Number(puntuacion.value),
+        user: localStorage.getItem("logueado"),
+        product: Number(localStorage.getItem("Products"))
+    }
+    data.push(comentario)
+    
+    addComment();
+    
+});

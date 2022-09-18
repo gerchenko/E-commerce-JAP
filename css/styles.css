@@ -257,3 +257,12 @@ body {
 .containerGoogle{
   align-items: center;
 }
+.img{
+  margin-right: 35px;
+}
+@media screen and (max-width: 1500px){
+  .img{
+    flex-direction: column;
+
+  }
+}
