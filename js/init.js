@@ -40,4 +40,15 @@ let getJSONData = function(url){
     });
 }
 let navEmail = document.getElementById("navEmail")
-navEmail.innerHTML += `<span class="nav-link">${localStorage.getItem("logueado")}</span>`
+navEmail.innerHTML += `<div class="dropdown">
+
+  <a class="nav-link" dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <span class="nav-item">${localStorage.getItem("logueado")}<i class="fa-solid fa-chevron-down iconWhite"></i></span>
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="/cart.html">Mi carrito</a></li>
+    <li><a class="dropdown-item" href="/my-profile.html">Mi perfil</a></li>
+    <li><a class="dropdown-item" onclick="localStorage.clear() "href="/login.html">Cerrar sesión</a></li>
+  </ul>
+  
+</div>`

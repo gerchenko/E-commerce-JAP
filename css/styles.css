@@ -223,6 +223,7 @@ i{
   right: 10px;
   top:12px;
   opacity: 1;
+  color:#ff0000;
 }
 
 form p{
@@ -260,9 +261,8 @@ body {
 .img{
   margin-right: 35px;
 }
-@media screen and (max-width: 1500px){
-  .img{
-    flex-direction: column;
-
-  }
+.iconWhite{
+  color:#d3d3d3;
+  padding-left: 5px;
 }
+

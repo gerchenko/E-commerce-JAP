@@ -1,4 +1,5 @@
 let Products = localStorage.getItem("Products");
+
 let PRODUCTS = `https://japceibal.github.io/emercado-api/products/${Products}.json`
 let COMMENTS = `https://japceibal.github.io/emercado-api/products_comments/${Products}.json`
 let data = [];
@@ -31,14 +32,68 @@ fetch(PRODUCTS)
                                     <div>
                                         <h5><b>Imágenes ilustrativas</b></h5>
                                     
-                                        <div class="col-3 d-flex">
-                                            <img src="${list.images[0]}" alt="${list.description}" class="img-thumbnail img">
-                                            <img src="${list.images[1]}" alt="${list.description}" class="img-thumbnail img">
-                                            <img src="${list.images[2]}" alt="${list.description}" class="img-thumbnail img">
-                                            <img src="${list.images[3]}" alt="${list.description}" class="img-thumbnail img">
-                                        </div>
-                                    </div>`
-    });
+                                        <div id="carouselExampleControls" class="carousel slide w-50" data-bs-ride="carousel">
+                                            <div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="${list.images[0]}" class="d-block w-100" alt="${list.description}">
+    </div>
+    <div class="carousel-item">
+      <img src="${list.images[1]}" class="d-block w-100" alt="${list.description}">
+    </div>
+    <div class="carousel-item">
+      <img src="${list.images[2]}" class="d-block w-100" alt="${list.description}">
+    </div>
+    <div class="carousel-item">
+      <img src="${list.images[3]}" class="d-block w-100" alt="${list.description}">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+  </div>
+</div>
+                                    </div>
+                                    
+                                    `
+                                    
+    let relatedproduct = document.getElementById("related-products")
+    
+    relatedproduct.innerHTML +=`
+    <br>
+    <br>
+    <hr>
+    <h4>Productos Relacionados</h4>
+    <br>
+    <br>
+    <div class="col-6 d-flex">
+    
+    <div class="list-group-item img cursor-active" onclick="setProducts(${list.relatedProducts[0].id})">
+    <img src="${list.relatedProducts[0].image}" class="img-thumbnail border-0">
+    ${list.relatedProducts[0].name}
+    </div>
+    
+    <div class="list-group-item img cursor-active" onclick="setProducts(${list.relatedProducts[1].id})">
+    <img src="${list.relatedProducts[1].image}" class="img-thumbnail border-0">
+    ${list.relatedProducts[1].name}
+    </div>
+    
+    
+    
+    </div>
+    `
+})
+function setProducts(id) {
+    localStorage.setItem("Products", id);
+    window.location = "product-info.html"
+}
+    
+    
    
     function addComment(){ let comentarios = document.getElementById("comentarios")
     let otrocomentario = "";
@@ -93,7 +148,8 @@ Tu puntuación:
     </select>
 </div>
 
-<button type="submit" class="btn btn-primary mt-2" id="btn">Enviar</button>`
+<button type="submit" class="btn btn-primary mt-2" id="btn">Enviar</button>
+`
 let comentario 
 let nuevoComentario = document.getElementById("btn")
 
@@ -116,3 +172,6 @@ nuevoComentario.addEventListener("click", function(e){
     addComment();
     
 });
+
+    
+   
