@@ -10,9 +10,14 @@ fetch(PRODUCTS)
     let container = document.getElementById("container")
     container.innerHTML +=`
     <br>
-         <h1>${list.name}</h1>
+    <div class="position-relative">
+    <div class="position-absolute top-0 start-0"><h1>${list.name}</h1></div>
+    <div class="position-absolute top-0 end-0"> <button type="button" class="btn btn-success boton" onclick="setProductsCart(${list.id})">Comprar</button></div>
+    </div>
+        
+        
             <br>
-                <hr>
+                <hr class="mt-5">
                     <div>
                         <h5><b>Precio</b></h5>
                             <p>${list.currency} ${list.cost}</p>
@@ -61,7 +66,8 @@ fetch(PRODUCTS)
                                     </div>
                                     
                                     `
-                                    
+                                   
+
     let relatedproduct = document.getElementById("related-products")
     
     relatedproduct.innerHTML +=`
