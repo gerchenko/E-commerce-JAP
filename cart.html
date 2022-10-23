@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,13 +9,12 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
 </head>
-
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
@@ -35,21 +33,186 @@
       </div>
     </div>
   </nav>
-  <main>
-    <div class="container" id="carrito">
-      
-    </div>
-  </main>
-  <footer class="text-muted">
+<main>
+  <div class="container">
+    <h1 style="text-align:center;">Carrito de compras</h1>
+      <h2>Articulos a comprar</h2>
+        <div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Costo</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Subtotal</th>
+              </tr>
+            </thead>
+              <tbody id="bodytable">
+              </tbody>
+          </table>
+        </div>
+          <hr>
+  </div>
     <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a> -
-        2022</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+      <h2>Tipo de envio</h2>
+        <br>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Premium 2 a 5 dias (15%)
+              </label>
+          </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Express 5 a 8 dias (7%)
+                </label>
+            </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                  <label class="form-check-label" for="flexRadioDefault3">
+                    Standard 12 a 15 dias 5%)
+                  </label>
+              </div>
+                <br>
+                  <h2>Direccion de envio</h2>
+                    <div class="d-flex ">
+                      <div class="mb-3 col-3 img">
+                        <label for="FormControlInput1" class="form-label">Calle</label>
+                          <input type="text" class="form-control" id="FormControlInput1">
+                      </div>
+                          <div class="mb-3 col-2">
+                            <label for="FormControlInput2" class="form-label">
+                              Numero
+                            </label>
+                              <input type="number" class="form-control" id="FormControlInput2">
+                          </div>
+                      </div>
+                        <div class="mb-3 col-3">
+                          <label for="FormControlInput3" class="form-label">
+                            Esquina
+                          </label>
+                            <input type="text" class="form-control" id="FormControlInput3">
+                        </div>
+                        <hr>
+                        <br>
     </div>
-  </footer>
+      
+    <div class="container">
+      <h2>Costos</h2>
+        <div class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+            <h5>Subtotal</h5>
+            <p>Costo unitario del producto por cantidad</p>
+            </div>
+            <div id="precioxD" class="mr-0">USD 15000</div>
+            
+        </div>
+       
+      </div>
+            
+      <div class="list-group-item">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+          <h5>Costo de envio</h5>
+          <p>Segun el tipo de envio</p>
+          </div>
+          <div id="precioxD" class="mr-0">USD 15000</div>
+          
+      </div>
+     
+    </div><div class="list-group-item">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+        <h5>Total ($)</h5>
+        
+        </div>
+        <div id="precioxD" class="mr-0">USD 15000</div>
+        
+    </div>
+   
+  </div>
+  <br>
+  <hr>
+      </div>
+      <div class="container">
+        <h4>Forma de pago</h4>
+        <p>No ha seleccionado <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Selecionar
+        </a></p>
+        
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Forma de pago</h1>
+                
+               
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Tarjeta de credito
+                  </label>
+                </div>
+                <hr>
+                <div class="d-flex">
+                <div class="mb-3 col-6 img">
+                  <label for="exampleFormControlInput1" class="form-label">Numero de tarjeta</label>
+                  <input  class="form-control" id="exampleFormControlInput1">
+                </div>
+                <div class="mb-3 col-3">
+                  <label for="exampleFormControlInput1" class="form-label">Codigo de seg.</label>
+                  <input class="form-control" id="exampleFormControlInput1" >
+                </div>
+              </div>
+              <div class="mb-3 col-6">
+                <label for="exampleFormControlInput1" class="form-label">Vencimiento (MM/AA)</label>
+                <input  class="form-control" id="exampleFormControlInput1">
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Transferencia bancaria
+                </label>
+              </div>
+              <hr>
+              <div class="mb-3 col-6">
+                <label for="exampleFormControlInput1" class="form-label">Numero de cuenta</label>
+                <input  class="form-control" id="exampleFormControlInput1">
+              </div>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="button">Finalizar compra</button>
+        </div>
+      </div>
+     
+</main>
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-end">
+      <a href="#">Volver arriba</a>
+    </p>
+    <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a> -
+      2022</p>
+    <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+  </div>
+  
+</footer>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -65,5 +228,4 @@
   <script src="js/cart.js"></script>
   <script src="js/product-info.js"></script>
 </body>
-
 </html>

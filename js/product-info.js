@@ -3,16 +3,17 @@ let Products = localStorage.getItem("Products");
 let PRODUCTS = `https://japceibal.github.io/emercado-api/products/${Products}.json`
 let COMMENTS = `https://japceibal.github.io/emercado-api/products_comments/${Products}.json`
 let data = [];
+let productInfo = [];
 fetch(PRODUCTS)
 .then(response => response.json())
 .then(list =>{
-    
+    productInfo = list
     let container = document.getElementById("container")
     container.innerHTML +=`
     <br>
     <div class="position-relative">
     <div class="position-absolute top-0 start-0"><h1>${list.name}</h1></div>
-    <div class="position-absolute top-0 end-0"> <button type="button" class="btn btn-success boton" onclick="setProductsCart(${list.id})">Comprar</button></div>
+    <div class="position-absolute top-0 end-0"> <button type="button" class="btn btn-success boton" onclick="setProductsCart()">Comprar</button></div>
     </div>
         
         
@@ -179,5 +180,25 @@ nuevoComentario.addEventListener("click", function(e){
     
 });
 
-    
-   
+let cartID = [];
+
+function setProductsCart() {
+    for(let id of cart){
+        cartID.push(String(id.id));
+        
+    }
+    if(!cartID.includes(Products)){
+        let articles = {
+            id : Products,
+            name : productInfo.name,
+            count : "1",
+            unitCost : productInfo.cost,
+            currency : productInfo.currency,
+            image : productInfo.images[0],
+        }
+
+        cart.push(articles)
+        localStorage.setItem("cart", JSON.stringify(cart))
+    }
+    console.log(cart)
+}
