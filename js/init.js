@@ -54,13 +54,4 @@ navEmail.innerHTML += `<div class="dropdown">
   
 </div>`
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-fetch(CARRIT0)
-.then(response => response.json())
-.then(data =>{
-if(cart.length===0){
-  cart.push(data.articles[0])
-}
-console.log(cart)
-})
 

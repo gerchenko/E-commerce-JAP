@@ -55,46 +55,46 @@
           <hr>
   </div>
     <div class="container">
+      <form class="needs-validation" novalidate>
       <h2>Tipo de envio</h2>
         <br>
+        <div class="form-check">
+          <input type="radio" class="form-check-input" id="premium" name="radio-stacked" required onclick="Calculated()">
+          <label class="form-check-label" for="validationFormCheck2">Premium 2 a 5 días (15%)</label>
+        </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-              <label class="form-check-label" for="flexRadioDefault1">
-                Premium 2 a 5 dias (15%)
-              </label>
+            <input type="radio" class="form-check-input" id="express" name="radio-stacked" required onclick="Calculated()">
+            <label class="form-check-label" for="validationFormCheck2">Express 5 a 8 días (7%)</label>
           </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                <label class="form-check-label" for="flexRadioDefault2">
-                  Express 5 a 8 dias (7%)
-                </label>
-            </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                  <label class="form-check-label" for="flexRadioDefault3">
-                    Standard 12 a 15 dias 5%)
-                  </label>
-              </div>
+          <div class="form-check">
+            <input type="radio" class="form-check-input" id="standard" name="radio-stacked" required onclick="Calculated()">
+            <label class="form-check-label" for="validationFormCheck2">Standard 12 a 15 días (5%)</label>
+          </div>
                 <br>
                   <h2>Direccion de envio</h2>
                     <div class="d-flex ">
                       <div class="mb-3 col-3 img">
-                        <label for="FormControlInput1" class="form-label">Calle</label>
-                          <input type="text" class="form-control" id="FormControlInput1">
-                      </div>
-                          <div class="mb-3 col-2">
-                            <label for="FormControlInput2" class="form-label">
-                              Numero
-                            </label>
-                              <input type="number" class="form-control" id="FormControlInput2">
-                          </div>
-                      </div>
-                        <div class="mb-3 col-3">
-                          <label for="FormControlInput3" class="form-label">
-                            Esquina
-                          </label>
-                            <input type="text" class="form-control" id="FormControlInput3">
+                        <label for="validationCustom03" class="form-label">Calle</label>
+                        <input type="text" class="form-control" id="validationCustom03" required>
+                        <div class="invalid-feedback">
+                          Ingresa una calle
                         </div>
+                      </div>
+                      <div class="mb-3 col-1">
+                        <label for="validationCustom03" class="form-label">Numero</label>
+                        <input type="number" class="form-control" id="validationCustom03" required>
+                        <div class="invalid-feedback">
+                          Ingresa un número
+                        </div>
+                      </div>
+                      </div>
+                      <div class="mb-3 col-3">
+                        <label for="validationCustom03" class="form-label">Esquina</label>
+                        <input type="text" class="form-control" id="validationCustom03" required>
+                        <div class="invalid-feedback">
+                          Ingresa una esquina
+                        </div>
+                      </div>
                         <hr>
                         <br>
     </div>
@@ -107,7 +107,7 @@
             <h5>Subtotal</h5>
             <p>Costo unitario del producto por cantidad</p>
             </div>
-            <div id="precioxD" class="mr-0">USD 15000</div>
+            <div id="subtotal" class="mr-0">USD 0</div>
             
         </div>
        
@@ -119,7 +119,7 @@
           <h5>Costo de envio</h5>
           <p>Segun el tipo de envio</p>
           </div>
-          <div id="precioxD" class="mr-0">USD 15000</div>
+          <div id="envio" class="mr-0">USD 0</div>
           
       </div>
      
@@ -129,7 +129,7 @@
         <h5>Total ($)</h5>
         
         </div>
-        <div id="precioxD" class="mr-0">USD 15000</div>
+        <div id="total" class="mr-0">USD 0</div>
         
     </div>
    
@@ -139,10 +139,21 @@
       </div>
       <div class="container">
         <h4>Forma de pago</h4>
-        <p>No ha seleccionado <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Selecionar
-        </a></p>
-        
+        <br>
+        <div class="col-12">
+          <div class="form-check">
+            <label class="form-check-label" for="invalidCheck">
+              <p id="metodoPago">Seleccionar metodo de pago</p> <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Seleccionar
+              </a>
+              
+            </label>
+            <div class="invalid-feedback" id="seleccionarMetodo">
+              Debe seleccionar un metodo de pago.
+            </div>
+          </div>
+        </div>
+        <br>
         
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -156,36 +167,36 @@
               </div>
               <div class="modal-body">
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    Tarjeta de credito
-                  </label>
+                  <input type="radio" class="form-check-input" id="radioCard" name="radio-stacked2" required onchange="metodoTarjeta()">
+                  <label class="form-check-label" for="validationFormCheck2">Tarjeta de credito</label>
                 </div>
                 <hr>
                 <div class="d-flex">
+                
+
                 <div class="mb-3 col-6 img">
-                  <label for="exampleFormControlInput1" class="form-label">Numero de tarjeta</label>
-                  <input  class="form-control" id="exampleFormControlInput1">
+                  <label for="validationCustom03" class="form-label">Numero de tarjeta</label>
+                  <input type="text" class="form-control" id="numero" required>
+                  
                 </div>
+
                 <div class="mb-3 col-3">
                   <label for="exampleFormControlInput1" class="form-label">Codigo de seg.</label>
-                  <input class="form-control" id="exampleFormControlInput1" >
+                  <input class="form-control" id="codigo" required>
                 </div>
               </div>
               <div class="mb-3 col-6">
                 <label for="exampleFormControlInput1" class="form-label">Vencimiento (MM/AA)</label>
-                <input  class="form-control" id="exampleFormControlInput1">
+                <input  class="form-control" id="vencimiento" required>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Transferencia bancaria
-                </label>
+                <input type="radio" class="form-check-input" id="radioTrans" name="radio-stacked2" required onchange="metodoTransferencia()">
+                <label class="form-check-label" for="validationFormCheck2">Transferencia bancaria</label>
               </div>
               <hr>
               <div class="mb-3 col-6">
                 <label for="exampleFormControlInput1" class="form-label">Numero de cuenta</label>
-                <input  class="form-control" id="exampleFormControlInput1">
+                <input  class="form-control" id="numeroCuenta" required>
               </div>
 
               </div>
@@ -197,9 +208,13 @@
           </div>
         </div>
         <div class="d-grid gap-2">
-          <button class="btn btn-primary" type="button">Finalizar compra</button>
+          <button class="btn btn-primary" type="submit">Finalizar compra</button>
         </div>
       </div>
+    </form>
+    <div id="alert-success" class="alert-success alert">
+      ¡Has comprado con éxito!
+    </div>
      
 </main>
 <footer class="text-muted">
